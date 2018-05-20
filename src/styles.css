@@ -1,2 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+    padding-top: 80px; 
+    background-color: rgb(248, 249, 250);
+}
+.content {
+    padding: 3rem 1.5rem;
+}
+
+.chara-list-img {
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}

@@ -1,0 +1,12 @@
+<div class="row">
+    <div *ngFor="let chara of list;" class="col-sm-3">
+        <div class="card" >
+            <img class="card-img-top chara-list-img" [src]="chara.img" [alt]="chara.charaName">
+            <div class="card-body">
+                <h5 class="card-title">{{ chara.charaName }}</h5>
+                <p class="card-text">{{ chara.charaGroup }}</p>
+            </div>
+        </div>
+        <br/>
+    </div>
+</div>
