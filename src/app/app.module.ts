@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
-import { CharacterListComponent } from './chara-list/chara-list.component';
+import { CharacterListComponent } from './character/chara-list.component';
 
 
 @NgModule({
