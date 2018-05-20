@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { CharacterListModel } from './chara-list-model';
+import { JsonLoaderService } from '../shared/json-loader.service';
+import { Observable } from "rxjs/Observable";
 
 @Component({
     selector: 'chara-list',
@@ -7,37 +9,21 @@ import { CharacterListModel } from './chara-list-model';
 })
 export class CharacterListComponent implements OnInit {
 
-    constructor() { }
+    constructor(@Inject(JsonLoaderService) private jsonLoader: JsonLoaderService) { }
 
-    public list: CharacterListModel[];
+    public list: CharacterListModel[] = [];
 
-    ngOnInit() {
-        this.list = [
-            {
-                img: "https://scontent.fkhh1-2.fna.fbcdn.net/v/t1.0-9/10620673_1575613612669278_4721259619238553804_n.png?_nc_cat=0&oh=2187bcb1fd4f451108a64e0331f19015&oe=5B81FD91",
-                charaCode: "KRTG-1",
-                charaName: "小穹",
-                charaGroup: "前進吧！！高捷少女"
-            },
-            {
-                img: "https://scontent.fkhh1-2.fna.fbcdn.net/v/t1.0-9/10805775_1582293975334575_7944674082605892163_n.png?_nc_cat=0&oh=f2ec02d7c1200e437b117db70dbd9aae&oe=5B8C4B86",
-                charaCode: "KRTG-2",
-                charaName: "艾米莉亞",
-                charaGroup: "前進吧！！高捷少女"
-            },
-            {
-                img: "https://scontent.fkhh1-2.fna.fbcdn.net/v/t1.0-9/29790280_2107277959502838_5400036591998978047_n.png?_nc_cat=0&oh=5d3d1a75c7ce459c7a2a4ea4fa20e500&oe=5BC3D949",
-                charaCode: "KRTG-3",
-                charaName: "婕兒",
-                charaGroup: "前進吧！！高捷少女"
-            },
-            {
-                img: "https://scontent.fkhh1-2.fna.fbcdn.net/v/t1.0-9/12920299_1768546803375957_7794314811330494590_n.png?_nc_cat=0&oh=806edbe9595cecfada167980e699690b&oe=5B98E132",
-                charaCode: "KRTG-4",
-                charaName: "耐耐",
-                charaGroup: "前進吧！！高捷少女"
-            }
-        ];
+    ngOnInit() { }
+
+    ngAfterViewInit() {
+        this.loadCharacterList();
     }
 
+    private loadCharacterList() {
+        this.jsonLoader.loadFormAssets("character-list.json").subscribe(
+            result => {
+                this.list = result;
+            }
+        );
+    }
 }
