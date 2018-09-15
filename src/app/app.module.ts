@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { CharacterListComponent } from './character/chara-list.component';
 import { JsonLoaderService } from './shared/json-loader.service';
+import { CharacterDetailComponent } from './character/chara-detail.component';
 
 
 @NgModule({
     declarations: [
         AppComponent,
         AppNavbarComponent,
-        CharacterListComponent
+        CharacterListComponent,
+        CharacterDetailComponent
     ],
     imports: [
         BrowserModule,

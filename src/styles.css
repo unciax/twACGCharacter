@@ -2,11 +2,15 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 body {
-    padding-top: 80px; 
+    padding-top: 55px; 
     background-color: rgb(248, 249, 250);
 }
-.content {
+/* .content {
     padding: 3rem 1.5rem;
+} */
+
+.chara {
+    cursor: pointer;
 }
 
 .chara-list-img {
